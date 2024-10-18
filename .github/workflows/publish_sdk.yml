@@ -14,5 +14,5 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build & Publish Docker image for SDK tag
         run: |
-              docker build . -t ghcr.io/Vauff/steamrt3-pterodactyl:sdk -f docker/RT3SDK-Dockerfile
-              docker push ghcr.io/Vauff/steamrt3-pterodactyl:sdk
+              docker build . -t ghcr.io/vauff/steamrt3-pterodactyl:sdk -f docker/RT3SDK-Dockerfile
+              docker push ghcr.io/vauff/steamrt3-pterodactyl:sdk
