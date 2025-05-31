@@ -1,4 +1,4 @@
-name: publish
+name: publish_debian
 on: [workflow_dispatch]
 jobs:
   publish-docker-image-main:
