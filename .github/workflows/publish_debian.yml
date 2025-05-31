@@ -12,7 +12,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build & Publish Docker image for debug tag
+      - name: Build & Publish Docker image for debian tag
         run: |
-              docker build . -t ghcr.io/vauff/steamrt3-pterodactyl:debug -f docker/RT3Debug-Dockerfile
-              docker push ghcr.io/vauff/steamrt3-pterodactyl:debug
+              docker build . -t ghcr.io/vauff/steamrt3-pterodactyl:debian -f docker/Debian-Dockerfile
+              docker push ghcr.io/vauff/steamrt3-pterodactyl:debian

@@ -1,7 +1,7 @@
 # Dockerfile with latest Debian for misc shell environment testing
 FROM        debian
 LABEL       author="Vauff"
-LABEL       org.opencontainers.image.description SteamRT3 Debug image for Pterodactyl CSGO/CS2/Source engine servers. 
+LABEL       org.opencontainers.image.description Debian image for Pterodactyl CSGO/CS2/Source engine servers. 
 LABEL       org.opencontainers.image.source="https://github.com/Vauff/CS2-Pterodactyl"
 
 # Prep OS
