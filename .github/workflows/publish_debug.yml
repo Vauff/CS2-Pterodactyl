@@ -16,3 +16,7 @@ jobs:
         run: |
               docker build . -t ghcr.io/vauff/steamrt3-pterodactyl:debug -f docker/RT3Debug-Dockerfile
               docker push ghcr.io/vauff/steamrt3-pterodactyl:debug
+      - name: Build & Publish Docker image for debian tag
+        run: |
+              docker build . -t ghcr.io/vauff/steamrt3-pterodactyl:debian -f docker/Debian-Dockerfile
+              docker push ghcr.io/vauff/steamrt3-pterodactyl:debian
