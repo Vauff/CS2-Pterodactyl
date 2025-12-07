@@ -12,6 +12,7 @@ RUN         wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo gpg --de
 RUN         sudo ls /usr/share/keyrings
 RUN         sudo ls /etc/apt/keyrings/
 RUN         sudo cat /usr/share/keyrings/llvm-snapshot.gpg
+RUN         sudo cat /usr/share/keyrings/steamrt-archive-keyring.gpg
 RUN         apt update && apt install -y iproute2 valgrind clang-tools-21 bind9-dnsutils && apt-get clean
 # this was needed to fix valgrind for some reason??
 RUN	        sudo apt install -y --reinstall libc6-dbg
