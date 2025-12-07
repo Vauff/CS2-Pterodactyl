@@ -9,7 +9,8 @@ ENV         DEBIAN_FRONTEND=noninteractive
 RUN         echo "deb http://apt.llvm.org/trixie/ llvm-toolchain-trixie main" >> /etc/apt/sources.list.d/llvm.list
 RUN         echo "deb-src http://apt.llvm.org/trixie/ llvm-toolchain-trixie main" >> /etc/apt/sources.list.d/llvm.list
 RUN         wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/llvm-toolchain-trixie.gpg
-RUN         apt update && apt install -y iproute2 valgrind clang-tools-21 bind9-dnsutils && apt-get clean
+# debian refuses to recognize the llvm gpg key..
+RUN         apt update --allow-unauthenticated && apt install --allow-unauthenticated -y iproute2 valgrind clang-tools-21 bind9-dnsutils && apt-get clean
 # this was needed to fix valgrind for some reason??
 RUN	        sudo apt install -y --reinstall libc6-dbg
 USER        container
