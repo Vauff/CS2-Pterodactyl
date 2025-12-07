@@ -4,22 +4,20 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2023-11-22T17:03:21+01:00",
+    "exported_at": "2025-12-07T08:36:50-06:00",
     "name": "Counter-Strike 2 (SteamRT3)",
-    "author": "infra@gflclan.com",
+    "author": "gflze2@gmail.com",
     "description": "Counter-Strike is a multiplayer first-person shooter video game developed by Valve. This image is based on Valve's Steam Runtime 3 platform (codenamed SNIPER) and was created to run both CSGO and CS2 without issues.",
     "features": [
         "gsl_token",
         "steam_disk_space"
     ],
     "docker_images": {
-        "SteamRT3": "ghcr.io\/1zc\/steamrt3-pterodactyl:latest",
-        "SteamRT3-PublicBeta": "ghcr.io\/1zc\/steamrt3-pterodactyl:beta-latest",
-        "SteamRT3-Dev": "ghcr.io\/1zc\/steamrt3-pterodactyl:dev",
-        "SteamRT3-PublicBetaDev": "ghcr.io\/1zc\/steamrt3-pterodactyl:beta-dev"
+        "SteamRT3": "ghcr.io\/vauff\/steamrt3-pterodactyl:rt3",
+        "SteamRT3-Debug": "ghcr.io\/vauff\/steamrt3-pterodactyl:rt3debug"
     },
     "file_denylist": [],
-    "startup": ".\/game\/cs2.sh -dedicated +ip 0.0.0.0 -port {{SERVER_PORT}} +map {{SRCDS_MAP}} -maxplayers {{SRCDS_MAXPLAYERS}} +sv_setsteamaccount {{STEAM_ACC}}",
+    "startup": ".\/game\/cs2.sh -dedicated +ip 0.0.0.0 -port {{SERVER_PORT}} -maxplayers {{SRCDS_MAXPLAYERS}} {{EXTRA_ARGS}}",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"Connection to Steam servers successful\"\r\n}",
@@ -34,16 +32,6 @@
         }
     },
     "variables": [
-        {
-            "name": "Map",
-            "description": "The default map for the server.",
-            "env_variable": "SRCDS_MAP",
-            "default_value": "de_dust2",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "required|string|alpha_dash",
-            "field_type": "text"
-        },
         {
             "name": "Source AppID",
             "description": "NOT VISIBLE TO USERS. DO NOT EDIT.",
@@ -85,13 +73,33 @@
             "field_type": "text"
         },
         {
-            "name": "Game Server Login Token (GSLT)",
-            "description": "The Steam Account Token required for the server to be displayed publicly. https:\/\/steamcommunity.com\/dev\/managegameservers",
-            "env_variable": "STEAM_ACC",
+            "name": "Extra Arguments",
+            "description": "Arguments appended to the command line",
+            "env_variable": "EXTRA_ARGS",
             "default_value": "",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "max:32|nullable",
+            "rules": "nullable|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Debugger",
+            "description": "Environment variable passed to cs2.sh",
+            "env_variable": "GAME_DEBUGGER",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string",
+            "field_type": "text"
+        },
+        {
+            "name": "SteamCMD Beta Name",
+            "description": "Set the ID of the beta to install and launch. Leave blank to disable Beta loading.",
+            "env_variable": "SRCDS_BETAID",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:64",
             "field_type": "text"
         }
     ]

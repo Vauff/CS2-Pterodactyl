@@ -1,7 +1,7 @@
 name: publish_rt3
 on: [workflow_dispatch]
 jobs:
-  publish-docker-image-main:
+  publish-docker-image:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' # Running this job only for main branch
     steps:
