@@ -1,18 +1,18 @@
-name: publish_debug
+name: publish_rt3debug
 on: [workflow_dispatch]
 jobs:
   publish-docker-image-main:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' # Running this job only for main branch
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build & Publish Docker image for debug tag
+      - name: Build & Publish Docker image for rt3debug tag
         run: |
-              docker build . -t ghcr.io/vauff/steamrt3-pterodactyl:debug -f docker/RT3Debug-Dockerfile
-              docker push ghcr.io/vauff/steamrt3-pterodactyl:debug
+              docker build . -t ghcr.io/vauff/steamrt3-pterodactyl:rt3debug -f docker/RT3Debug-Dockerfile
+              docker push ghcr.io/vauff/steamrt3-pterodactyl:rt3debug
