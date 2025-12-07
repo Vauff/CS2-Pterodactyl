@@ -8,7 +8,7 @@ RUN         mkdir -p /etc/sudoers.d && echo "%sudo ALL=(ALL:ALL) NOPASSWD: ALL" 
 ENV         DEBIAN_FRONTEND=noninteractive
 RUN         echo "deb http://apt.llvm.org/trixie/ llvm-toolchain-trixie main" >> /etc/apt/sources.list.d/llvm.list
 RUN         echo "deb-src http://apt.llvm.org/trixie/ llvm-toolchain-trixie main" >> /etc/apt/sources.list.d/llvm.list
-RUN         wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo tee -a /etc/apt/trusted.gpg.d/llvm-snapshot.gpg.asc
+RUN         sudo wget -O /etc/apt/trusted.gpg.d/llvm-snapshot.gpg.key https://apt.llvm.org/llvm-snapshot.gpg.key
 RUN         apt update && apt install -y iproute2 valgrind clang-tools-21 bind9-dnsutils && apt-get clean
 # this was needed to fix valgrind for some reason??
 RUN	        sudo apt install -y --reinstall libc6-dbg
