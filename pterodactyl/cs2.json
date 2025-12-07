@@ -13,8 +13,10 @@
         "steam_disk_space"
     ],
     "docker_images": {
-        "SteamRT3": "ghcr.io\/vauff\/steamrt3-pterodactyl:rt3",
-        "SteamRT3-Debug": "ghcr.io\/vauff\/steamrt3-pterodactyl:rt3debug"
+        "SteamRT3": "ghcr.io\/vauff\/cs2-pterodactyl:rt3",
+        "SteamRT3-Debug": "ghcr.io\/vauff\/cs2-pterodactyl:rt3debug",
+        "SteamRT4": "ghcr.io\/vauff\/cs2-pterodactyl:rt4",
+        "SteamRT4-Debug": "ghcr.io\/vauff\/cs2-pterodactyl:rt4debug"
     },
     "file_denylist": [],
     "startup": ".\/game\/cs2.sh -dedicated +ip 0.0.0.0 -port {{SERVER_PORT}} -maxplayers {{SRCDS_MAXPLAYERS}} {{EXTRA_ARGS}}",

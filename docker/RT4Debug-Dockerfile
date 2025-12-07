@@ -1,13 +1,13 @@
-FROM        registry.gitlab.steamos.cloud/steamrt/sniper/sdk:latest-container-runtime-depot
+FROM        registry.gitlab.steamos.cloud/steamrt/steamrt4/sdk:latest-container-runtime-depot
 LABEL       author="Vauff"
-LABEL       org.opencontainers.image.description SteamRT3 Debug image for Pterodactyl CSGO/CS2/Source engine servers. 
+LABEL       org.opencontainers.image.description SteamRT4 Debug image for Pterodactyl CSGO/CS2/Source engine servers. 
 LABEL       org.opencontainers.image.source="https://github.com/Vauff/CS2-Pterodactyl"
 
 # Prep OS
 RUN         mkdir -p /etc/sudoers.d && echo "%sudo ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/flatdeb && chmod 0440 /etc/sudoers.d/flatdeb
 ENV         DEBIAN_FRONTEND=noninteractive
-RUN         echo "deb http://apt.llvm.org/bullseye/ llvm-toolchain-bullseye-21 main" >> /etc/apt/sources.list.d/llvm.list
-RUN         echo "deb-src http://apt.llvm.org/bullseye/ llvm-toolchain-bullseye-21 main" >> /etc/apt/sources.list.d/llvm.list
+RUN         echo "deb http://apt.llvm.org/trixie/ llvm-toolchain-trixie main" >> /etc/apt/sources.list.d/llvm.list
+RUN         echo "deb-src http://apt.llvm.org/trixie/ llvm-toolchain-trixie main" >> /etc/apt/sources.list.d/llvm.list
 RUN         wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
 RUN         apt update && apt install -y iproute2 valgrind clang-tools-21 bind9-dnsutils && apt-get clean
 # this was needed to fix valgrind for some reason??

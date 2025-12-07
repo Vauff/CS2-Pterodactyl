@@ -1,6 +1,6 @@
-FROM        registry.gitlab.steamos.cloud/steamrt/sniper/platform:latest-container-runtime-depot
+FROM        registry.gitlab.steamos.cloud/steamrt/steamrt4/platform:latest-container-runtime-depot
 LABEL       author="Vauff"
-LABEL       org.opencontainers.image.description SteamRT3 Platform image for Pterodactyl CSGO/CS2/Source engine servers. 
+LABEL       org.opencontainers.image.description SteamRT4 Platform image for Pterodactyl CSGO/CS2/Source engine servers. 
 LABEL       org.opencontainers.image.source="https://github.com/Vauff/CS2-Pterodactyl"
 
 # Prep OS
