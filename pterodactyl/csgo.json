@@ -13,6 +13,7 @@
         "steam_disk_space"
     ],
     "docker_images": {
+        "Ubuntu 22.04": "ghcr.io\/vauff\/cs2-pterodactyl:ubuntu2204",
         "SteamRT3": "ghcr.io\/vauff\/cs2-pterodactyl:rt3",
         "SteamRT3-Debug": "ghcr.io\/vauff\/cs2-pterodactyl:rt3debug",
         "SteamRT4": "ghcr.io\/vauff\/cs2-pterodactyl:rt4",
